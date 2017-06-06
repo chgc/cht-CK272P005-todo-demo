@@ -7,7 +7,8 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'todos';
-  addTodo(value) {
-    console.log(value);
+  addTodo(element) {
+    console.log(element.value);
+    element.value = '';
   }
 }
