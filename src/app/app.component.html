@@ -9,7 +9,7 @@
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <!-- These are here just to show the structure of the list items -->
-      <li *ngFor="let todo of todoList" [ngClass]="{'completed': todo.isCompleted}">
+      <li *ngFor="let todo of displayTodoList" [ngClass]="{'completed': todo.isCompleted}">
         <div class="view">
           <input class="toggle" type="checkbox" [(ngModel)]="todo.isCompleted">
           <label>{{ todo.content }}</label>
@@ -26,13 +26,13 @@
     <!-- Remove this if you don't implement routing -->
     <ul class="filters">
       <li>
-        <a class="selected" href="#/">All</a>
+        <a (click)="setFilter('all')" [ngClass]="{'selected': state==='all'}">All</a>
       </li>
       <li>
-        <a href="#/active">Active</a>
+        <a (click)="setFilter('active')" [ngClass]="{'selected': state==='active'}">Active</a>
       </li>
       <li>
-        <a href="#/completed">Completed</a>
+        <a (click)="setFilter('completed')" [ngClass]="{'selected': state==='completed'}">Completed</a>
       </li>
     </ul>
     <!-- Hidden if no completed items are left ↓ -->
