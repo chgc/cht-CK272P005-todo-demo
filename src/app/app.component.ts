@@ -8,8 +8,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'todos';
   newTodo: string;
+  todoList = [];
   addTodo() {
-    console.log(this.newTodo);
+    this.todoList.push(this.newTodo);
     this.newTodo = '';
   }
 }
