@@ -1,5 +1,7 @@
-# Demo1
+# CK272P005 Angular 2 開發流程實戰  第005期
+下午實作所實作的 Todo 範例
 
+# Todo 範例
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
 ## Development server
