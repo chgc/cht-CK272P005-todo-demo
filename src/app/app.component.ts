@@ -25,6 +25,10 @@ export class AppComponent {
   toggleAll(event) {
     this.todoList.map(x => x.isCompleted = event.target.checked);
   }
+
+  getItemCount() {
+    return this.todoList.filter(x => !x.isCompleted).length;
+  }
   getId() {
     this.id++;
     return this.id;
