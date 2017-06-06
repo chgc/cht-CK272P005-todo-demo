@@ -7,10 +7,17 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'todos';
+  id = 0;
   newTodo: string;
   todoList = [];
   addTodo() {
-    this.todoList.push(this.newTodo);
+    this.todoList.push(
+        {id: this.getId(), content: this.newTodo, isCompleted: false});
     this.newTodo = '';
+  }
+
+  getId() {
+    this.id++;
+    return this.id;
   }
 }
