@@ -21,6 +21,10 @@ export class AppComponent {
       this.todoList.splice(idx, 1);
     }
   }
+
+  toggleAll(event) {
+    this.todoList.map(x => x.isCompleted = event.target.checked);
+  }
   getId() {
     this.id++;
     return this.id;
