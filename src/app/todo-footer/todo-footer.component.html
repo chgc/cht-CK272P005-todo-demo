@@ -1,0 +1,18 @@
+<footer class="footer">
+  <!-- This should be `0 items left` by default -->
+  <span class="todo-count"><strong>{{ getItemCount() }}</strong> item left</span>
+  <!-- Remove this if you don't implement routing -->
+  <ul class="filters">
+    <li>
+      <a (click)="setFilter('all')" [ngClass]="{'selected': state==='all'}">All</a>
+    </li>
+    <li>
+      <a (click)="setFilter('active')" [ngClass]="{'selected': state==='active'}">Active</a>
+    </li>
+    <li>
+      <a (click)="setFilter('completed')" [ngClass]="{'selected': state==='completed'}">Completed</a>
+    </li>
+  </ul>
+  <!-- Hidden if no completed items are left ↓ -->
+  <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
+</footer>

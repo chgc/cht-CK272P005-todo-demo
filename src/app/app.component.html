@@ -9,7 +9,7 @@
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <!-- These are here just to show the structure of the list items -->
-      <li *ngFor="let todo of displayTodoList" [ngClass]="{'completed': todo.isCompleted}">
+      <li *ngFor="let todo of displayTodoList" [ngClass]="{'completed': todo?.isCompleted}">
         <div class="view">
           <input class="toggle" type="checkbox" [(ngModel)]="todo.isCompleted">
           <label>{{ todo.content }}</label>
@@ -20,24 +20,7 @@
     </ul>
   </section>
   <!-- This footer should hidden by default and shown when there are todos -->
-  <footer class="footer">
-    <!-- This should be `0 items left` by default -->
-    <span class="todo-count"><strong>{{ getItemCount() }}</strong> item left</span>
-    <!-- Remove this if you don't implement routing -->
-    <ul class="filters">
-      <li>
-        <a (click)="setFilter('all')" [ngClass]="{'selected': state==='all'}">All</a>
-      </li>
-      <li>
-        <a (click)="setFilter('active')" [ngClass]="{'selected': state==='active'}">Active</a>
-      </li>
-      <li>
-        <a (click)="setFilter('completed')" [ngClass]="{'selected': state==='completed'}">Completed</a>
-      </li>
-    </ul>
-    <!-- Hidden if no completed items are left ↓ -->
-    <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
-  </footer>
+  <app-todo-footer [todoList]="todoList" (onChange)="getDisplayTodo($event)" (clearCompleted)="clearCompleted($event)"></app-todo-footer>
 </section>
 <footer class="info">
   <p>Double-click to edit a todo</p>
