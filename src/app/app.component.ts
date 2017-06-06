@@ -48,6 +48,11 @@ export class AppComponent {
         break;
     }
   }
+
+  clearCompleted() {
+    this.todoList = this.todoList.filter(x => !x.isCompleted);
+    this.setFilter(this.state);
+  }
   getId() {
     this.id++;
     return this.id;
