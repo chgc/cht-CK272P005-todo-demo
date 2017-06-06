@@ -7,4 +7,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'todos';
+  addTodo(event) {
+    console.log(event.target.value);
+  }
 }
